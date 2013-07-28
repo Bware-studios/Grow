@@ -28,15 +28,15 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     pEGLView->setDesignResolutionSize(480, 320, kResolutionNoBorder);
 
-    CCPoint psize=pEGLView->getDesignResolutionSize();
-    CCPoint fsize=pEGLView->getFrameSize();
-    printf("d %f %f\n",psize.x,psize.y);
-    printf("f %f %f\n",fsize.x,fsize.y);
+    CCSize psize=pEGLView->getDesignResolutionSize();
+    CCSize fsize=pEGLView->getFrameSize();
+    printf("d %f %f\n",psize.width,psize.height);
+    printf("f %f %f\n",fsize.width,fsize.height);
 
 
     vector<string> searchPaths;
 
-    if (fsize.x>lowRes.size.width) {
+    if (fsize.width>lowRes.size.width) {
         searchPaths.push_back("hr");
         printf("high res display\n");
         pDirector->setContentScaleFactor(2);
