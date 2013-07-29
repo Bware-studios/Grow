@@ -58,6 +58,9 @@ bool MenuScene::init() {
     this->addChild(fondo,10);
     
 
+    CCSprite *titulo_sprite=CCSprite::create("titulo.png");
+    titulo_sprite->setPosition(ccp(300,200));
+    this->addChild(titulo_sprite,20);
     
     changeToMain();
     changeToMain();

@@ -24,7 +24,9 @@ public:
     
     void loadGameContent();
     
-    CCLayerGradient *fondo;
+    void exitLoadScene();
+    
+    //CCLayerGradient *fondo;
     CCLabelTTF *texto;
     
     

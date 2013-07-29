@@ -19,16 +19,21 @@ LoadScene::~LoadScene() {
 
 
 bool LoadScene::init() {
-    cocos2d::ccColor4B c1={0,50,0,255};
-    cocos2d::ccColor4B c2={0,150,0,255};
+    //ccColor4B c1={0,50,0,255};
+    //ccColor4B c2={0,150,0,255};
+    //fondo=CCLayerGradient::create(c1,c2);
+    //this->addChild(fondo);
     
-    fondo=cocos2d::CCLayerGradient::create(c1,c2);
-    this->addChild(fondo);
+    CCSprite *fondoimg= CCSprite::create("fondo_loading.png");
+    fondoimg->setPosition(ccp(240,160));
+    this->addChild(fondoimg,1);
     
+    texto=CCLabelTTF::create("xxx", "MarkerFelt", 18);
+    texto->setPosition(ccp(240,20));
 
-    texto=CCLabelTTF::create("xxx", "MarkerFelt", 24);
-    texto->setPosition(ccp(200,50));
-    fondo->addChild(texto);
+    ccColor3B textcolor={100,100,100};
+    texto->setColor(textcolor);
+    this->addChild(texto,10);
     
     return true;
 }
@@ -47,7 +52,7 @@ LoadScene *LoadScene::create() {
 }
 
 void LoadScene::loadGameContent() {
-    texto->setString("Preparing graphics");
+    texto->setString("Loading: Preparing graphics");
     
     CCSpriteFrameCache *sf_cache = CCSpriteFrameCache::sharedSpriteFrameCache();
     
@@ -179,25 +184,27 @@ void LoadScene::loadGameContent() {
     an_cache->addAnimation(anim, "flor");
     
     
-    texto->setString("Preparing menu");
+    texto->setString("Loading: Preparing menu");
     theMenuScene = MenuScene::create();
     theMenuScene->retain();
   //  texto->setString("Preparing scene");
   //  theGameScene = GameScene::create();
   //  theGameScene->retain();
 
-    texto->setString("Preparing audio");
+    texto->setString("Loading: Preparing audio");
     audio_preload_all();
     
-    texto->setString("Done");
+    //texto->setString("Done");
 
     
-    
-    CCDirector* pDirector = CCDirector::sharedDirector();
-    pDirector->pushScene(theMenuScene);
+    this->runAction(CCSequence::createWithTwoActions(CCDelayTime::create(2.0), CCCallFunc::create(this,callfunc_selector(LoadScene::exitLoadScene))));
 
 }
 
+void LoadScene::exitLoadScene() {
+    CCDirector* pDirector = CCDirector::sharedDirector();
+    pDirector->pushScene(theMenuScene);
+}
 
 
 void setLoadSceneAndStart(CCDirector *director) {
