@@ -196,6 +196,7 @@ void LoadScene::loadGameContent() {
     
     //texto->setString("Done");
 
+    texto->setString("Loading: DONE");
     
     this->runAction(CCSequence::createWithTwoActions(CCDelayTime::create(2.0), CCCallFunc::create(this,callfunc_selector(LoadScene::exitLoadScene))));
 
