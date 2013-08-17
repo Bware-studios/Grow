@@ -144,13 +144,13 @@ void LoadScene::loadGameContent() {
 //    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(576, 192, 192,96));
 //    sf_cache->addSpriteFrame(sframe, "flor4");
 
-    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(0, 192, 256, 256));
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(0, 192, 256, 192));
     sf_cache->addSpriteFrame(sframe, "flor1");
-    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(256, 192, 256, 256));
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(256, 192, 256, 192));
     sf_cache->addSpriteFrame(sframe, "flor2");
-    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(512, 192, 256, 256));
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(512, 192, 256, 192));
     sf_cache->addSpriteFrame(sframe, "flor3");
-    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(768, 192, 256, 256));
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(768, 192, 256, 192));
     sf_cache->addSpriteFrame(sframe, "flor4");
 
 
