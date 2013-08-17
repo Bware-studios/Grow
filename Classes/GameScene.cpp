@@ -166,16 +166,21 @@ void GameScene::grow_reduce_1hoja() {
     printf("grow_rate %f \n",grow_rate);
     if (grow_reductions==6) {
         grow_rate=0;
-        // perder
-        playended=true;
-        CCLabelTTF *text;
-        text= CCLabelTTF::create("You lost", "Marker Felt", 40);
-        CCSize fsize=CCEGLView::sharedOpenGLView()->getDesignResolutionSize();
-        text->setPosition(ccp(fsize.width/2,fsize.height/2));
-        text->setColor((ccColor3B){0,0,0});
-        this->addChild(text);
-        this->schedule_game_exit(5);
+        this->game_lost();
     }
+}
+
+void GameScene::game_lost() {
+    grow_rate=0;
+    // perder
+    playended=true;
+    CCLabelTTF *text;
+    text= CCLabelTTF::create("You lost", "Marker Felt", 40);
+    CCSize fsize=CCEGLView::sharedOpenGLView()->getDesignResolutionSize();
+    text->setPosition(ccp(fsize.width/2,fsize.height/2));
+    text->setColor((ccColor3B){0,0,0});
+    this->addChild(text);
+    this->schedule_game_exit(5);    
 }
 
 void GameScene::flor_grown() {
@@ -199,8 +204,8 @@ void GameScene::schedule_game_exit(float dt) {
 
 void GameScene::game_exit() {
     printf("finished\n");
+    //CCDirector::sharedDirector()->replaceScene(CCTransitionMoveInR::create(0.3,theMenuScene));
+    CCDirector::sharedDirector()->replaceScene(theMenuScene);
     theMenuScene->mainEnterActions();
-    CCDirector::sharedDirector()->replaceScene(CCTransitionMoveInR::create(0.3,theMenuScene));
-
 }
 

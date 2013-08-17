@@ -26,7 +26,7 @@ Hoja::~Hoja() {
 }
 
 
-bool Hoja::init(CCNode *parent,CCPoint pos, bool fliped) {
+bool Hoja::init(CCNode *parent,CCPoint pos, bool fliped, Planta *planta) {
     
     if (!hojas) {
         hojas = CCArray::createWithCapacity(hoja_array_capacity);
@@ -39,7 +39,7 @@ bool Hoja::init(CCNode *parent,CCPoint pos, bool fliped) {
         right_hoja_anim= CCAnimationCache::sharedAnimationCache()->animationByName("right_hoja");
 
     
-    
+    planta_parent=planta;
     
     hoja_sprite=CCSprite::createWithSpriteFrameName(fliped?"right_hoja1":"left_hoja1");
     hoja_sprite->retain();
@@ -62,10 +62,10 @@ bool Hoja::init(CCNode *parent,CCPoint pos, bool fliped) {
 }
 
 
-Hoja *Hoja::create(CCNode *parent, CCPoint pos, bool fliped) {
+Hoja *Hoja::create(CCNode *parent, CCPoint pos, bool fliped, Planta *planta) {
     Hoja *s=new Hoja();
     if (s==NULL) return NULL;
-    if ( s->init(parent,pos,fliped) == false ) {
+    if ( s->init(parent,pos,fliped,planta) == false ) {
         delete s;
         s=NULL;
     } else {
@@ -103,6 +103,7 @@ bool Hoja::drain(float dlife) {
     if (vida<0) {
         vida=0;
         if (!falling) {
+            planta_parent->hoja_falling();
             falling=true;
             bicho_forget_hoja_target(this);
             theGameScene->grow_reduce_1hoja();

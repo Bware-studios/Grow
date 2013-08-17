@@ -32,6 +32,7 @@ public:
 
     void set_dificultad(int i);
     void grow_reduce_1hoja();
+    void game_lost();
     void flor_grown();
 
     void schedule_game_exit(float dt);
@@ -68,6 +69,17 @@ public:
     // hojas
     int live_hojas;
     int max_hojas;
+    
+    
+    
+    // score
+    // por crecer la flor 1.0 es completamente todo
+    float score_grow;
+    // por matar bichos
+    float score_kill;
+    
+    // acumulado en multiples rondas
+    float score_total;
     
 };
 

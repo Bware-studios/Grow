@@ -27,6 +27,8 @@ public:
     void ccTouchEnded(CCTouch *touch, CCEvent *event);
     void ccTouchCancelled(CCTouch *touch, CCEvent *event);
 
+    void hoja_falling();
+    
     
     GameScene *parent;
     float grow;
@@ -38,6 +40,9 @@ public:
     float y[5];
     float alfa[4];
     float progreso;
+    
+    bool first_hoja_grown;
+    int alive_hojas;
     
    // CCSprite *hoja_sprite[3];
     CCSprite *flor_sprite;

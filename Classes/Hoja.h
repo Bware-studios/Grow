@@ -15,8 +15,8 @@ class Hoja : public CCObject {
 public:
     Hoja();
     ~Hoja();
-    bool init(CCNode *parent, CCPoint pos, bool fliped);
-    static Hoja *create(CCNode *parent, CCPoint pos, bool fliped);
+    bool init(CCNode *parent, CCPoint pos, bool fliped, Planta *planta);
+    static Hoja *create(CCNode *parent, CCPoint pos, bool fliped, Planta *planta);
     
     void update(float dt);
     
@@ -24,6 +24,7 @@ public:
     
     bool drain(float dlife);
 
+    Planta *planta_parent;
     
     // punto inicial y final donde parar un bicho
     CCPoint getBichoPosition(float alfa);

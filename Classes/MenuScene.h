@@ -32,6 +32,7 @@ public:
 
     void changeToOptions();
     void changeToMain();
+    void changeToGame();
     
     void mainEnterActions();
     void mainCleanActions();

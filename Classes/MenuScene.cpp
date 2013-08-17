@@ -104,14 +104,8 @@ MenuScene *MenuScene::create() {
 
 
 void MenuScene::action_enter1(CCObject *sender) {
-    CCDirector* pDirector = CCDirector::sharedDirector();
-    
-    if (theGameScene) theGameScene->release();
-    theGameScene = GameScene::create(10);
-    theGameScene->retain();
     this->mainCleanActions();
-    
-    pDirector->replaceScene(CCTransitionMoveInL::create(0.3,theGameScene));
+    this->runAction(CCSequence::createWithTwoActions(CCDelayTime::create(0.5), CCCallFunc::create(this,callfunc_selector(MenuScene::changeToGame))));
 }
 
 void MenuScene::action_enter2(CCObject *sender) {
@@ -206,6 +200,18 @@ void MenuScene::changeToMain() {
     
     visible_menu=menu;
     if (menu_created) this->addChild(visible_menu,20);
+}
+
+void MenuScene::changeToGame() {
+    CCDirector* pDirector = CCDirector::sharedDirector();
+    
+    if (theGameScene) theGameScene->release();
+    theGameScene = GameScene::create(10);
+    theGameScene->retain();
+    
+    pDirector->replaceScene(theGameScene);
+    //pDirector->replaceScene(CCTransitionMoveInL::create(0.3,theGameScene));
+
 }
 
 
