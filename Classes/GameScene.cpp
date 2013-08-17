@@ -199,6 +199,7 @@ void GameScene::schedule_game_exit(float dt) {
 
 void GameScene::game_exit() {
     printf("finished\n");
+    theMenuScene->mainEnterActions();
     CCDirector::sharedDirector()->replaceScene(CCTransitionMoveInR::create(0.3,theMenuScene));
 
 }

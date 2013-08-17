@@ -13,7 +13,7 @@ bool dontdieOption=false;
 
 
 // origen 0,0 en la esquina inferior izuquierda son hijos de scene
-const CCPoint titulo_position = ccp(240,250);
+const CCPoint titulo_position = ccp(240,270);
 const CCPoint titulo_position_out = ccp(240,400);
 
 const CCPoint options_position = ccp(240,160);
@@ -109,6 +109,7 @@ void MenuScene::action_enter1(CCObject *sender) {
     if (theGameScene) theGameScene->release();
     theGameScene = GameScene::create(10);
     theGameScene->retain();
+    this->mainCleanActions();
     
     pDirector->replaceScene(CCTransitionMoveInL::create(0.3,theGameScene));
 }
