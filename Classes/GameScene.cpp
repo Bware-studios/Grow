@@ -55,6 +55,17 @@ bool GameScene::init() {
     plantaLayer->addChild(player_ps,30);
 
     
+    
+    ingame_controls_layer=CCLayer::create();
+    ingame_pause_layer=NULL;
+    ingame_results=NULL;
+    
+    this->addChild(ingame_controls_layer, 100);
+    CCMenuItemImage *pause_button=CCMenuItemImage::create("CloseNormal.png", "CloseSelected.png", this, menu_selector(GameScene::action_pause_button));
+    pause_button->setPosition(ccp(230,150));
+    CCMenu *menu=CCMenu::create(pause_button,NULL);
+    ingame_controls_layer->addChild(menu);
+    
     this->resetGameState();
     this->scheduleUpdate();
     
@@ -80,6 +91,7 @@ void GameScene::resetGameState() {
     player_ps->stopSystem();
     fumigando=false;
     playended=false;
+    gamepaused=false;
     
 }
 
@@ -208,4 +220,11 @@ void GameScene::game_exit() {
     CCDirector::sharedDirector()->replaceScene(theMenuScene);
     theMenuScene->mainEnterActions();
 }
+
+
+void GameScene::action_pause_button() {
+    printf("pause\n");
+}
+
+
 

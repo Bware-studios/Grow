@@ -38,6 +38,9 @@ public:
     void schedule_game_exit(float dt);
     void game_exit();
     
+    void action_pause_button();
+    
+    
     CCLayer *fondo;
     CCSprite *fondo_sprite;
     Planta *plantaLayer;
@@ -49,7 +52,13 @@ public:
     CCParticleSmoke *player_ps;
     bool fumigando;
     
+    
+    CCLayer *ingame_controls_layer;
+    CCLayerGradient *ingame_results;
+    CCLayerGradient *ingame_pause_layer;
+    
     bool playended;
+    bool gamepaused;
     
     // new bugs per second
     float new_bugs_rate;
