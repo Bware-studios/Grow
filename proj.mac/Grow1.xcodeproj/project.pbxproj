@@ -173,6 +173,9 @@
 		41BC70E815BF81A5006A0A6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BC70E115BF81A5006A0A6C /* main.m */; };
 		8C583FAD169DB6D500F63A10 /* CCEditBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C583FA8169DB6D500F63A10 /* CCEditBox.cpp */; };
 		8C583FAE169DB6D500F63A10 /* CCEditBoxImplMac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8C583FAC169DB6D500F63A10 /* CCEditBoxImplMac.mm */; };
+		9712AE5017FA109A00572C41 /* caratula.png in Resources */ = {isa = PBXBuildFile; fileRef = 9712AE4F17FA109A00572C41 /* caratula.png */; };
+		9712AE5217FA10B800572C41 /* caratula.png in Resources */ = {isa = PBXBuildFile; fileRef = 9712AE5117FA10B800572C41 /* caratula.png */; };
+		9712AE5417FA10C400572C41 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9712AE5317FA10C400572C41 /* Images.xcassets */; };
 		9714733B17494C20002EDC63 /* LoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9714733917494C20002EDC63 /* LoadScene.cpp */; };
 		97216F46173B01450035814D /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97216F44173B01450035814D /* MenuScene.cpp */; };
 		97328E7D175BB94100C33E67 /* Audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97328E7B175BB94100C33E67 /* Audio.cpp */; };
@@ -538,6 +541,9 @@
 		8C583FAA169DB6D500F63A10 /* CCEditBoxImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEditBoxImpl.h; path = CCEditBox/CCEditBoxImpl.h; sourceTree = "<group>"; };
 		8C583FAB169DB6D500F63A10 /* CCEditBoxImplMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEditBoxImplMac.h; path = CCEditBox/CCEditBoxImplMac.h; sourceTree = "<group>"; };
 		8C583FAC169DB6D500F63A10 /* CCEditBoxImplMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CCEditBoxImplMac.mm; path = CCEditBox/CCEditBoxImplMac.mm; sourceTree = "<group>"; };
+		9712AE4F17FA109A00572C41 /* caratula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caratula.png; sourceTree = "<group>"; };
+		9712AE5117FA10B800572C41 /* caratula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caratula.png; sourceTree = "<group>"; };
+		9712AE5317FA10C400572C41 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Grow1/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		9714733917494C20002EDC63 /* LoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoadScene.cpp; path = ../Classes/LoadScene.cpp; sourceTree = "<group>"; };
 		9714733A17494C20002EDC63 /* LoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadScene.h; path = ../Classes/LoadScene.h; sourceTree = "<group>"; };
 		97216F44173B01450035814D /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuScene.cpp; path = ../Classes/MenuScene.cpp; sourceTree = "<group>"; };
@@ -1137,6 +1143,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				9712AE5117FA10B800572C41 /* caratula.png */,
 				15C156C21683158700D239F2 /* cocos2dx.xcodeproj */,
 				15C156CB1683159D00D239F2 /* Box2D */,
 				15C1577E168315B300D239F2 /* chipmunk */,
@@ -1195,6 +1202,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9712AE5317FA10C400572C41 /* Images.xcassets */,
 				97F63F8717BEA4B1003A41A8 /* boton_info_selected.png */,
 				97F63F8817BEA4B1003A41A8 /* boton_play_selected.png */,
 				97F63F8317BE97F8003A41A8 /* boton_info.png */,
@@ -1208,6 +1216,7 @@
 				97DD153217A71C6F000A9695 /* fondo_loading.png */,
 				97DD153417A72396000A9695 /* titulo.png */,
 				1AFAF8C216D3884900DB1158 /* HelloWorld.png */,
+				9712AE4F17FA109A00572C41 /* caratula.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -1296,11 +1305,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				41BC70E515BF81A5006A0A6C /* InfoPlist.strings in Resources */,
+				9712AE5417FA10C400572C41 /* Images.xcassets in Resources */,
 				41BC70E615BF81A5006A0A6C /* MainMenu.xib in Resources */,
 				41BC70E715BF81A5006A0A6C /* Icon.icns in Resources */,
 				15C157DA168315B300D239F2 /* CMakeLists.txt in Resources */,
+				9712AE5217FA10B800572C41 /* caratula.png in Resources */,
 				1AFAF8C316D3884900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8C416D3884900DB1158 /* CloseSelected.png in Resources */,
+				9712AE5017FA109A00572C41 /* caratula.png in Resources */,
 				1AFAF8C516D3884900DB1158 /* HelloWorld.png in Resources */,
 				97F4626B175BC40300D1E214 /* spray.wav in Resources */,
 				97BBB74B175DDF0C00A7CEEE /* Grow1_textura_p.png in Resources */,
@@ -1515,6 +1527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
@@ -1557,6 +1570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
