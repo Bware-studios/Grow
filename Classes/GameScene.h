@@ -35,11 +35,18 @@ public:
     void game_lost();
     void flor_grown();
 
+    void score_update_1kill();
+    void score_update_grow();
+    void score_update();
+    
     void schedule_game_exit(float dt);
     void game_exit();
     
     void action_pause_button();
+    void action_unpause_button();
     
+    void end_game_results();
+
     
     CCLayer *fondo;
     CCSprite *fondo_sprite;
@@ -59,7 +66,11 @@ public:
     
     bool playended;
     bool gamepaused;
+
+    bool gamewon;
     
+    bool call_bicho_arrival_after_pause;
+
     // new bugs per second
     float new_bugs_rate;
     bool generate_bugs;
@@ -86,6 +97,7 @@ public:
     float score_grow;
     // por matar bichos
     float score_kill;
+    int score_num_kills;
     
     // acumulado en multiples rondas
     float score_total;

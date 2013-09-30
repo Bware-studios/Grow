@@ -144,7 +144,11 @@ void hoja_update_all(float dt) {
 }
 
 void hoja_delete_all() {
-    hojas->removeAllObjects();
+    if (hojas) {
+        hojas->removeAllObjects();
+        hojas->release();
+        hojas=NULL;
+    }
 }
 
 Hoja *hoja_get_random_hoja() {

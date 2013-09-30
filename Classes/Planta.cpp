@@ -186,6 +186,7 @@ Planta *Planta::create(GameScene *parent) {
 }
 
 void Planta::update(float dt) {
+    float grow_at_function_start=grow;
     if (fase<4) grow+=dt*theGameScene->grow_rate;
     int faseant=fase;
     fase=(int)(grow*npartes);
@@ -201,6 +202,7 @@ void Planta::update(float dt) {
             first_hoja_grown=true;
             alive_hojas+=2;
         } else {
+            theGameScene->score_update_grow();
             theGameScene->flor_grown();
             flor_sprite = CCSprite::createWithSpriteFrameName("flor1");
             flor_sprite->setAnchorPoint(ccp(0.5,0));
@@ -249,6 +251,10 @@ void Planta::update(float dt) {
 //        flor_sprite->setRotation(this->alfa[fase]);
 //        //printf("%f\n",this->alfa[fase]);
 //    }
+    if (grow>grow_at_function_start) {
+        theGameScene->score_update_grow();
+    }
+    
 }
 
 void Planta::draw(void) {

@@ -33,7 +33,7 @@ const int z_buttons=20;
 
 CCMenuItemLabel *MakeMenuItem(const char *texto, float x, float y,ccColor3B color, CCObject *target, SEL_MenuHandler selector) {
     CCMenuItemLabel *l1;
-    l1=CCMenuItemLabel::create(CCLabelTTF::create(texto, "MarkerFelt", 40),target,selector);
+    l1=CCMenuItemLabel::create(CCLabelTTF::create(texto, "Marker Felt", 40),target,selector);
     l1->setColor(color);
     l1->setPosition(ccp(x,y));
     return l1;
