@@ -177,6 +177,8 @@
 		97216F46173B01450035814D /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97216F44173B01450035814D /* MenuScene.cpp */; };
 		97328E7D175BB94100C33E67 /* Audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97328E7B175BB94100C33E67 /* Audio.cpp */; };
 		9739ED0A1742E99A003F7841 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9739ED081742E99A003F7841 /* GameScene.cpp */; };
+		973BF7E917FA204B000A10D3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973BF7E817FA204B000A10D3 /* Images.xcassets */; };
+		973BF7EB17FA2069000A10D3 /* caratula.png in Resources */ = {isa = PBXBuildFile; fileRef = 973BF7EA17FA2069000A10D3 /* caratula.png */; };
 		97A4693717549D450025DD9F /* Hoja.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97A4693517549D450025DD9F /* Hoja.cpp */; };
 		97AA2179174C046E005636E3 /* Bicho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97AA2177174C046E005636E3 /* Bicho.cpp */; };
 		97B1C8F51764AE98003662EE /* RandUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97B1C8F31764AE98003662EE /* RandUtils.cpp */; };
@@ -524,7 +526,7 @@
 		1AFAF8C716D3886000DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
 		1AFAF8C816D3886000DB1158 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = ../Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
 		1AFAF8C916D3886000DB1158 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = ../Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* Grow1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grow1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Grow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC70D915BF81A5006A0A6C /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = SOURCE_ROOT; };
 		41BC70DA15BF81A5006A0A6C /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = SOURCE_ROOT; };
 		41BC70DD15BF81A5006A0A6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -547,6 +549,8 @@
 		97328E7C175BB94100C33E67 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Audio.h; path = ../Classes/Audio.h; sourceTree = "<group>"; };
 		9739ED081742E99A003F7841 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
 		9739ED091742E99A003F7841 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
+		973BF7E817FA204B000A10D3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Grow1/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		973BF7EA17FA2069000A10D3 /* caratula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = caratula.png; path = ../proj.ios/caratula.png; sourceTree = "<group>"; };
 		97A4693517549D450025DD9F /* Hoja.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Hoja.cpp; path = ../Classes/Hoja.cpp; sourceTree = "<group>"; };
 		97A4693617549D450025DD9F /* Hoja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hoja.h; path = ../Classes/Hoja.h; sourceTree = "<group>"; };
 		97AA2177174C046E005636E3 /* Bicho.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bicho.cpp; path = ../Classes/Bicho.cpp; sourceTree = "<group>"; };
@@ -1083,7 +1087,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Grow1.app */,
+				1D6058910D05DD3D006BFB54 /* Grow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1137,6 +1141,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				973BF7EA17FA2069000A10D3 /* caratula.png */,
 				15C156C21683158700D239F2 /* cocos2dx.xcodeproj */,
 				15C156CB1683159D00D239F2 /* Box2D */,
 				15C1577E168315B300D239F2 /* chipmunk */,
@@ -1195,6 +1200,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				973BF7E817FA204B000A10D3 /* Images.xcassets */,
 				97F63F8717BEA4B1003A41A8 /* boton_info_selected.png */,
 				97F63F8817BEA4B1003A41A8 /* boton_play_selected.png */,
 				97F63F8317BE97F8003A41A8 /* boton_info.png */,
@@ -1228,9 +1234,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* Grow1 */ = {
+		1D6058900D05DD3D006BFB54 /* Grow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Grow1" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Grow" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -1241,9 +1247,9 @@
 			dependencies = (
 				15C159521683161500D239F2 /* PBXTargetDependency */,
 			);
-			name = Grow1;
+			name = Grow;
 			productName = iphone;
-			productReference = 1D6058910D05DD3D006BFB54 /* Grow1.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Grow.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1254,7 +1260,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Grow1" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Grow" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -1275,7 +1281,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* Grow1 */,
+				1D6058900D05DD3D006BFB54 /* Grow */,
 			);
 		};
 /* End PBXProject section */
@@ -1299,11 +1305,13 @@
 				41BC70E615BF81A5006A0A6C /* MainMenu.xib in Resources */,
 				41BC70E715BF81A5006A0A6C /* Icon.icns in Resources */,
 				15C157DA168315B300D239F2 /* CMakeLists.txt in Resources */,
+				973BF7EB17FA2069000A10D3 /* caratula.png in Resources */,
 				1AFAF8C316D3884900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8C416D3884900DB1158 /* CloseSelected.png in Resources */,
 				1AFAF8C516D3884900DB1158 /* HelloWorld.png in Resources */,
 				97F4626B175BC40300D1E214 /* spray.wav in Resources */,
 				97BBB74B175DDF0C00A7CEEE /* Grow1_textura_p.png in Resources */,
+				973BF7E917FA204B000A10D3 /* Images.xcassets in Resources */,
 				97F6AC04178AE5C7003211F7 /* hr in Resources */,
 				97F6AC05178AE5C7003211F7 /* lr in Resources */,
 				97DD153317A71C6F000A9695 /* fondo_loading.png in Resources */,
@@ -1515,6 +1523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
@@ -1546,7 +1555,7 @@
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac/libraries\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CFLAGS = "-O2";
-				PRODUCT_NAME = Grow1;
+				PRODUCT_NAME = Grow;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 x86_64";
@@ -1557,6 +1566,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
@@ -1585,7 +1595,7 @@
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac/libraries\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = Grow1;
+				PRODUCT_NAME = Grow;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -1631,7 +1641,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Grow1" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Grow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -1640,7 +1650,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Grow1" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Grow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
