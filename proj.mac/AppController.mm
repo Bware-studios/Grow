@@ -62,7 +62,7 @@ const bool appctl_use_small_window=false;
 		// set window parameters
 		[window becomeFirstResponder];
 		[window setContentView:glView];
-		[window setTitle:@"Grow"];
+		[window setTitle:@"HelloCpp"];
 		[window makeKeyAndOrderFront:self];
 		[window setAcceptsMouseMovedEvents:NO];
 
