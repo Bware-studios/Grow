@@ -14,8 +14,7 @@
 
 float planta_desviacion_amplitud=60;
 
-int npartes=4;
-
+const int npartes=4;
 
 CCAnimation *planta_hoja_anim= NULL;
 CCAnimation *planta_flor_anim= NULL;
@@ -163,6 +162,9 @@ bool Planta::init(GameScene *parent) {
 //    flor_sprite->setPosition(ccp());
     
     
+    first_hoja_grown=false;
+    alive_hojas=0;
+    
     touching=false;
     this->setTouchEnabled(true);
     this->setTouchMode(kCCTouchesOneByOne);
@@ -184,6 +186,7 @@ Planta *Planta::create(GameScene *parent) {
 }
 
 void Planta::update(float dt) {
+    float grow_at_function_start=grow;
     if (fase<4) grow+=dt*theGameScene->grow_rate;
     int faseant=fase;
     fase=(int)(grow*npartes);
@@ -194,12 +197,15 @@ void Planta::update(float dt) {
             tallo_sprite[fase]->setRotation(alfa[fase]);
             tallo_sprite[fase]->setAnchorPoint(ccp(0.5,0.75));
             this->addChild(tallo_sprite[fase],10-2*fase);
-            Hoja::create(this, ccp(x[fase]-5,y[fase]),true);
-            Hoja::create(this, ccp(x[fase]+5,y[fase]),false);
+            Hoja::create(this, ccp(x[fase]-5,y[fase]),true,this);
+            Hoja::create(this, ccp(x[fase]+5,y[fase]),false,this);
+            first_hoja_grown=true;
+            alive_hojas+=2;
         } else {
+            theGameScene->score_update_grow();
             theGameScene->flor_grown();
             flor_sprite = CCSprite::createWithSpriteFrameName("flor1");
-            flor_sprite->setAnchorPoint(ccp(0.5,.2));
+            flor_sprite->setAnchorPoint(ccp(0.5,0));
             flor_sprite->setPosition(ccp(x[fase],y[fase]));
             this->addChild(flor_sprite, 11);
             flor_sprite->runAction(CCAnimate::create(planta_flor_anim));
@@ -245,6 +251,10 @@ void Planta::update(float dt) {
 //        flor_sprite->setRotation(this->alfa[fase]);
 //        //printf("%f\n",this->alfa[fase]);
 //    }
+    if (grow>grow_at_function_start) {
+        theGameScene->score_update_grow();
+    }
+    
 }
 
 void Planta::draw(void) {
@@ -256,6 +266,14 @@ void Planta::draw(void) {
     }
 }
 
+
+
+void Planta::hoja_falling() {
+    alive_hojas-=1;
+    if (first_hoja_grown && alive_hojas==0) {
+        theGameScene->game_lost();
+    }
+}
 
 
 

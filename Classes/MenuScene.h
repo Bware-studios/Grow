@@ -32,6 +32,12 @@ public:
 
     void changeToOptions();
     void changeToMain();
+    void changeToGame();
+    
+    void mainEnterActions();
+    void mainCleanActions();
+    void optionsEnterActions();
+    void optionsCleanActions();
     
     
     CCLayer *fondo;
@@ -41,8 +47,15 @@ public:
     CCMenu *options;
     CCMenu *visible_menu;
     
+    CCLayerGradient *fondo_optionsMenu;
     CCMenuItemLabel *debugOptionMenuItem;
     CCMenuItemLabel *dontdieOptionMenuItem;
+
+    
+    CCSprite *titulo_sprite;
+    CCMenuItemImage *boton_play;
+    CCMenuItemImage *boton_info;
+    
     
 };
 

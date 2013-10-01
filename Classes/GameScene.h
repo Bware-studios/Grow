@@ -32,10 +32,21 @@ public:
 
     void set_dificultad(int i);
     void grow_reduce_1hoja();
+    void game_lost();
     void flor_grown();
 
+    void score_update_1kill();
+    void score_update_grow();
+    void score_update();
+    
     void schedule_game_exit(float dt);
     void game_exit();
+    
+    void action_pause_button();
+    void action_unpause_button();
+    
+    void end_game_results();
+
     
     CCLayer *fondo;
     CCSprite *fondo_sprite;
@@ -48,8 +59,18 @@ public:
     CCParticleSmoke *player_ps;
     bool fumigando;
     
-    bool playended;
     
+    CCLayer *ingame_controls_layer;
+    CCLayerGradient *ingame_results;
+    CCLayerGradient *ingame_pause_layer;
+    
+    bool playended;
+    bool gamepaused;
+
+    bool gamewon;
+    
+    bool call_bicho_arrival_after_pause;
+
     // new bugs per second
     float new_bugs_rate;
     bool generate_bugs;
@@ -68,6 +89,18 @@ public:
     // hojas
     int live_hojas;
     int max_hojas;
+    
+    
+    
+    // score
+    // por crecer la flor 1.0 es completamente todo
+    float score_grow;
+    // por matar bichos
+    float score_kill;
+    int score_num_kills;
+    
+    // acumulado en multiples rondas
+    float score_total;
     
 };
 

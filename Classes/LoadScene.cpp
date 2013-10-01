@@ -109,17 +109,31 @@ void LoadScene::loadGameContent() {
     
     
     sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(768, 64, 192,64));
-    sf_cache->addSpriteFrame(sframe, "hoja1");
+    sf_cache->addSpriteFrame(sframe, "right_hoja1");
     sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(576, 64, 192,64));
-    sf_cache->addSpriteFrame(sframe, "hoja2");
+    sf_cache->addSpriteFrame(sframe, "right_hoja2");
     sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(0, 64, 192,64));
-    sf_cache->addSpriteFrame(sframe, "hoja3");
+    sf_cache->addSpriteFrame(sframe, "right_hoja3");
 
     sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(192, 64, 192,64));
-    sf_cache->addSpriteFrame(sframe, "hoja_comida1");
+    sf_cache->addSpriteFrame(sframe, "right_hoja_comida1");
     sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(384, 64, 192,64));
-    sf_cache->addSpriteFrame(sframe, "hoja_comida2");
+    sf_cache->addSpriteFrame(sframe, "right_hoja_comida2");
 
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(768, 384, 192,64));
+    sf_cache->addSpriteFrame(sframe, "left_hoja1");
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(576, 384, 192,64));
+    sf_cache->addSpriteFrame(sframe, "left_hoja2");
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(0, 384, 192,64));
+    sf_cache->addSpriteFrame(sframe, "left_hoja3");
+    
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(192, 384, 192,64));
+    sf_cache->addSpriteFrame(sframe, "left_hoja_comida1");
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(384, 384, 192,64));
+    sf_cache->addSpriteFrame(sframe, "left_hoja_comida2");
+    
+
+    
     
 //    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(0, 192, 192,96));
 //    sf_cache->addSpriteFrame(sframe, "flor1");
@@ -130,13 +144,13 @@ void LoadScene::loadGameContent() {
 //    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(576, 192, 192,96));
 //    sf_cache->addSpriteFrame(sframe, "flor4");
 
-    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(0, 192, 256, 256));
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(0, 192, 256, 192));
     sf_cache->addSpriteFrame(sframe, "flor1");
-    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(256, 192, 256, 256));
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(256, 192, 256, 192));
     sf_cache->addSpriteFrame(sframe, "flor2");
-    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(512, 192, 256, 256));
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(512, 192, 256, 192));
     sf_cache->addSpriteFrame(sframe, "flor3");
-    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(768, 192, 256, 256));
+    sframe=CCSpriteFrame::create("Grow1_textura1.png", CCRectMake(768, 192, 256, 192));
     sf_cache->addSpriteFrame(sframe, "flor4");
 
 
@@ -175,9 +189,13 @@ void LoadScene::loadGameContent() {
     anim=CCAnimation::createWithSpriteFrames(frames,0.03);
     an_cache->addAnimation(anim, "bicho_comiendo");
 
-    frames=CCArray::create(sf_cache->spriteFrameByName("hoja1"),sf_cache->spriteFrameByName("hoja2"),sf_cache->spriteFrameByName("hoja3"),NULL);
+    frames=CCArray::create(sf_cache->spriteFrameByName("left_hoja1"),sf_cache->spriteFrameByName("left_hoja2"),sf_cache->spriteFrameByName("left_hoja3"),NULL);
     anim=CCAnimation::createWithSpriteFrames(frames,0.4);
-    an_cache->addAnimation(anim, "hoja");
+    an_cache->addAnimation(anim, "left_hoja");
+
+    frames=CCArray::create(sf_cache->spriteFrameByName("right_hoja1"),sf_cache->spriteFrameByName("right_hoja2"),sf_cache->spriteFrameByName("right_hoja3"),NULL);
+    anim=CCAnimation::createWithSpriteFrames(frames,0.4);
+    an_cache->addAnimation(anim, "right_hoja");
     
     frames=CCArray::create(sf_cache->spriteFrameByName("flor1"),sf_cache->spriteFrameByName("flor2"),sf_cache->spriteFrameByName("flor3"),sf_cache->spriteFrameByName("flor4"),NULL);
     anim=CCAnimation::createWithSpriteFrames(frames,0.5);
@@ -196,6 +214,7 @@ void LoadScene::loadGameContent() {
     
     //texto->setString("Done");
 
+    texto->setString("Loading: DONE");
     
     this->runAction(CCSequence::createWithTwoActions(CCDelayTime::create(2.0), CCCallFunc::create(this,callfunc_selector(LoadScene::exitLoadScene))));
 

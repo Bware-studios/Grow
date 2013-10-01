@@ -14,7 +14,8 @@ float hoja_angulo_hoja=0;
 
 CCArray * hojas = NULL;
 
-CCAnimation *hoja_anim= NULL;
+CCAnimation *left_hoja_anim= NULL;
+CCAnimation *right_hoja_anim= NULL;
 
 
 Hoja::Hoja() {
@@ -25,26 +26,28 @@ Hoja::~Hoja() {
 }
 
 
-bool Hoja::init(CCNode *parent,CCPoint pos, bool fliped) {
+bool Hoja::init(CCNode *parent,CCPoint pos, bool fliped, Planta *planta) {
     
     if (!hojas) {
         hojas = CCArray::createWithCapacity(hoja_array_capacity);
         hojas->retain();
     }
     
-    if (!hoja_anim)
-        hoja_anim= CCAnimationCache::sharedAnimationCache()->animationByName("hoja");
+    if (!left_hoja_anim)
+        left_hoja_anim= CCAnimationCache::sharedAnimationCache()->animationByName("left_hoja");
+    if (!right_hoja_anim)
+        right_hoja_anim= CCAnimationCache::sharedAnimationCache()->animationByName("right_hoja");
 
     
+    planta_parent=planta;
     
-    
-    hoja_sprite=CCSprite::createWithSpriteFrameName("hoja1");
+    hoja_sprite=CCSprite::createWithSpriteFrameName(fliped?"right_hoja1":"left_hoja1");
     hoja_sprite->retain();
     
     hoja_sprite->setAnchorPoint(fliped?ccp(1,.5):ccp(0,.5));
     hoja_sprite->setPosition(pos);
     hoja_sprite->setFlipX(fliped);
-    hoja_sprite->runAction(CCAnimate::create(hoja_anim));
+    hoja_sprite->runAction(CCAnimate::create(fliped?left_hoja_anim:right_hoja_anim));
     hoja_sprite->setRotation(fliped?-hoja_angulo_hoja:hoja_angulo_hoja);
     parent->addChild(hoja_sprite,11);
 
@@ -59,10 +62,10 @@ bool Hoja::init(CCNode *parent,CCPoint pos, bool fliped) {
 }
 
 
-Hoja *Hoja::create(CCNode *parent, CCPoint pos, bool fliped) {
+Hoja *Hoja::create(CCNode *parent, CCPoint pos, bool fliped, Planta *planta) {
     Hoja *s=new Hoja();
     if (s==NULL) return NULL;
-    if ( s->init(parent,pos,fliped) == false ) {
+    if ( s->init(parent,pos,fliped,planta) == false ) {
         delete s;
         s=NULL;
     } else {
@@ -100,6 +103,7 @@ bool Hoja::drain(float dlife) {
     if (vida<0) {
         vida=0;
         if (!falling) {
+            planta_parent->hoja_falling();
             falling=true;
             bicho_forget_hoja_target(this);
             theGameScene->grow_reduce_1hoja();
@@ -107,10 +111,10 @@ bool Hoja::drain(float dlife) {
         return false;
     } else if (damage<2 && vida < 0.3*maxvida) {
         damage+=1;
-        hoja_sprite->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("hoja_comida2"));
+        hoja_sprite->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(hoja_sprite->isFlipX()?"left_hoja_comida2":"right_hoja_comida2"));
     } else if (damage<1 && vida < 0.6*maxvida) {
         damage+=1;
-        hoja_sprite->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("hoja_comida1"));        
+        hoja_sprite->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(hoja_sprite->isFlipX()?"left_hoja_comida1":"right_hoja_comida1"));
     }
     return true;
 }
@@ -140,7 +144,11 @@ void hoja_update_all(float dt) {
 }
 
 void hoja_delete_all() {
-    hojas->removeAllObjects();
+    if (hojas) {
+        hojas->removeAllObjects();
+        hojas->release();
+        hojas=NULL;
+    }
 }
 
 Hoja *hoja_get_random_hoja() {

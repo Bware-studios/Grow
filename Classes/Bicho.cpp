@@ -109,6 +109,7 @@ void Bicho::checkdamagefrom(float x, float y) {
         alas_action=alas->runAction(CCAnimate::create(bicho_muriendo_anim));
         alas->setRotation(0);
         muerto=true;
+        theGameScene->score_update_1kill();
     }
 }
 
@@ -233,6 +234,7 @@ void bicho_update_all(float dt,bool playended) {
     CCPoint fumigando_p;
     bool fumigando=theGameScene->fumigando;
     if (fumigando) fumigando_p=theGameScene->player_ps->getPosition();
+    if (bichos==NULL) return;
     int n=bichos->count();
     for (i=0;i<n;i++) {
         bichoaux=(Bicho *)(bichos->objectAtIndex(i));
@@ -248,7 +250,11 @@ void bicho_update_all(float dt,bool playended) {
 }
 
 void bicho_delete_all() {
-    bichos->removeAllObjects();
+    if (bichos) {
+        bichos->removeAllObjects();
+        bichos->release();
+        bichos=NULL;
+    }
 }
 
 void bicho_forget_hoja_target(Hoja *hoja) {
