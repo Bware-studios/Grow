@@ -26,7 +26,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     pDirector->setOpenGLView(pEGLView);
 
-    pEGLView->setDesignResolutionSize(480, 320, kResolutionNoBorder);
+    pEGLView->setDesignResolutionSize(480, 320, kResolutionShowAll);
 
     CCSize psize=pEGLView->getDesignResolutionSize();
     CCSize fsize=pEGLView->getFrameSize();

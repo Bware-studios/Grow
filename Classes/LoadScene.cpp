@@ -28,7 +28,7 @@ bool LoadScene::init() {
     fondoimg->setPosition(ccp(240,160));
     this->addChild(fondoimg,1);
     
-    texto=CCLabelTTF::create("xxx", "MarkerFelt", 18);
+    texto=CCLabelTTF::create("xxx", "Marker Felt", 18);
     texto->setPosition(ccp(240,20));
 
     ccColor3B textcolor={100,100,100};
